@@ -21,6 +21,7 @@ def reader (textfile):
             else:
                 input_dict.update({info[0]: float(info[1])})
                 continue
+    input_file.close()
     return input_dict
 
 data = reader('occupations.csv')
@@ -43,7 +44,9 @@ ticker = 0 #keep place in list of tuples
 #rewrites second with percent ranges
 for k,v in second:
     percent = percent + v
-    second[ticker] = (second[ticker][0],percent)
+    #print percent
+    second[ticker] = (second[ticker][0],round(percent,1))
+    #print second[ticker]
     ticker+= 1
 
 #debug
@@ -52,6 +55,16 @@ for k,v in second:
     print k
     print v
 '''
+
+
+#for test.sh
+'''
+file = open("dict.txt","w")
+for k,v in second:
+    file.write(k+'\n')
+file.close()
+'''
+    
 
 #method for random job
 def choosejob():
