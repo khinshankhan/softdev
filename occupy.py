@@ -55,13 +55,16 @@ for k,v in second:
 
 #method for random job
 def choosejob():
+    job = "ERROR" #will be changed to job
     rand = round(random.uniform(0, 99.8),1)
     #print rand
     for k,v in second:
         if rand > v:
             continue
         else:
-            print k
+            job = k
             break
-choosejob()
+    return job
+
+print choosejob()
 
