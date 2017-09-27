@@ -24,9 +24,9 @@ def reader (textfile):
     input_file.close()
     return input_dict
 
-data = reader('occupations.csv')
-temp = copy.deepcopy(data) #separating references
-second = sorted(temp.items())
+dictionary = reader('occupations.csv')
+
+#print dictionary
 
 #debug
 '''
@@ -37,17 +37,6 @@ for keys,values in data.items():
 #    x += 1
 #print "Tally of entries: %s" % x
 '''
-
-percent = 0 #accumulate percents
-ticker = 0 #keep place in list of tuples
-
-#rewrites second with percent ranges
-for k,v in second:
-    percent = percent + v
-    #print percent
-    second[ticker] = (second[ticker][0],round(percent,1))
-    #print second[ticker]
-    ticker+= 1
 
 #debug
 '''
@@ -64,10 +53,22 @@ for k,v in second:
     file.write(k+'\n')
 file.close()
 '''
-
+    
 
 #method for random job
-def choosejob():
+def choosejob(textfile):
+    data = reader(textfile)
+    temp = copy.deepcopy(data) #separating references
+    second = sorted(temp.items())
+    percent = 0 #accumulate percents
+    ticker = 0 #keep place in list of tuples
+    #rewrites second with percent ranges
+    for k,v in second:
+        percent = percent + v
+        #print percent
+        second[ticker] = (second[ticker][0],round(percent,1))
+        #print second[ticker]
+        ticker+= 1
     job = "ERROR" #will be changed to job
     rand = round(random.uniform(0, 99.8),1)
     #print rand
@@ -79,4 +80,5 @@ def choosejob():
             break
     return job
 
-print choosejob()
+print choosejob('occupations.csv')
+
