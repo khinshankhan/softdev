@@ -24,7 +24,7 @@ def reader (textfile):
     input_file.close()
     return input_dict
 
-data = reader('occupations.csv')
+data = reader('data/occupations.csv')
 temp = copy.deepcopy(data) #separating references
 second = sorted(temp.items())
 

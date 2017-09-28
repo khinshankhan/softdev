@@ -1,44 +1,44 @@
 Architecture and Engineering: 
-11
+25
 Arts, design, entertainment, sports and media: 
-23
+11
 Building and grounds cleaning and maintenance: 
-35
+38
 Business and Financial operations: 
-55
+42
 Community and Social Service: 
-12
+18
 Computer and Mathematical: 
-27
+30
 Construction and extraction: 
-46
+49
 Education, training and library: 
-50
+47
 Farming, fishing and forestry: 
 6
 Food preparation and serving: 
-70
+77
 Healthcare practioners and technical: 
-65
+66
 Healthcare support: 
-31
+28
 Installation, maintenance and repair: 
-43
+34
 Legal: 
-8
+9
 Life, Physical and Social Science: 
 6
 Management: 
-57
+63
 Office and administrative support: 
-151
+138
 Personal care and service: 
-39
+46
 Production: 
-62
+71
 Protective service: 
-20
+23
 Sales: 
-107
+91
 Transportation and material moving: 
-76
+82
