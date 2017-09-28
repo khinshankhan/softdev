@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from occupy import reader, choosejob
+from utils import occupy
 
 app = Flask(__name__)
 
@@ -9,7 +9,7 @@ def main():
 
 @app.route('/occupations')
 def display():
-    return render_template('template.html', dict = reader('occupations.csv'), random = choosejob('occupations.csv'))
+    return render_template('template.html', dict = occupy.reader('data/occupations.csv'), random = occupy.choosejob('data/occupations.csv'))
 	
 if __name__ == '__main__':
     app.run()

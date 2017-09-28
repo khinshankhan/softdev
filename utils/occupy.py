@@ -24,7 +24,7 @@ def reader (textfile):
     input_file.close()
     return input_dict
 
-dictionary = reader('occupations.csv')
+#dictionary = reader('../data/occupations.csv')
 
 #print dictionary
 
@@ -80,5 +80,5 @@ def choosejob(textfile):
             break
     return job
 
-print choosejob('occupations.csv')
+#print choosejob('../data/occupations.csv')
 
