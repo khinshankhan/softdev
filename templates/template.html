@@ -5,7 +5,7 @@
   </head>
   <body>
     
-    <form>
+    <form method="POST" action="/welcome">
       <!--TEXTFIELD NAME-->
       ENTER NAME:
       <br>
@@ -15,7 +15,8 @@
       <!--BUTTON-->
       <input type="submit" value="Submit">
       <br>
-      Heya, {{entered_name}}!
+      {{entered_name}}</br>
+      You used {{method}} to get here!
     </form>
     
   </body>
