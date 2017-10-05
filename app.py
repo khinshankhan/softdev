@@ -11,31 +11,36 @@ password = 'password'
 def root():
     #return  'GO TO 127.0.0.1:5000/login TO LOG IN'
     if 'user' in session:
-        print session
         return redirect('/welcome')
-    print session
     return redirect('/login')
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    print session
-    return render_template("template.html")
+	#if session is already in place, go to welcome.html right away
+	#otherwise, go to login page
+	if 'user' in session:
+	    return render_template('welcome.html')
+	else:
+	    return render_template("template.html")
 
 @app.route('/welcome', methods=['POST', 'GET'])
 def welcome():
-    #DEBUGGING, SOMETHING IS WRONG HERE...
+	#if session is already in place, go to welcome.html without asking for request
     if 'user' in session:
         print "HEUUUUUUUUUUUUUUUUUUUUUUUUUUUUUWYYYYYYYYYYYYYYYYYY"
+        return render_template('welcome.html')
     else:
         print "OOOOOOOOOOOOOOOOOOOOOHHHHHHHHHHHH NOOOOOOOOOOOOOOO"
-    print request.form
-    print session
+		
+    #if session was not in place, use the info inputted by the user to go to welcome.html
     if request.form['user'] == username and request.form['pass'] == password:
         if 'user' in session:
 		    return render_template('welcome.html')
         else:
             session['user'] = 'data'
             return render_template('welcome.html')
+			
+	#if the username, password, or both were wrong
     else:
         wrong = 'SORRY, BUT YOUR '
         if request.form['user'] != username and request.form['pass'] != password:
