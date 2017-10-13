@@ -5,6 +5,13 @@
   </head>
   <body>
     
+    <center>
+      {% set messages = get_flashed_messages() %}
+      {% for i in messages %}
+      {{i}}
+      {% endfor %}
+    </center>
+    
     <form method="POST" action="/welcome">
       ENTER USERNAME:
       <br>
