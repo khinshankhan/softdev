@@ -40,10 +40,8 @@ def authenticate(user, passw):
 @app.route('/welcome', methods=['POST', 'GET'])
 def welcome():
     if 'user' not in session:
-        print 'NOT LOGGED IN'
-        if request.args != []:
-            #print request.args
-            print 'REQUESTS MADE'
+		#fixed if statement here
+        if 'user' in request.form:
             user = request.form['user']
             passw = request.form['pass']
         
@@ -53,7 +51,6 @@ def welcome():
                 session['user'] = user
             else:
                 flash ('Sorry, but your '+ result + ' is wrong. Please try again')
-        print 'FINALE!'
         return redirect(url_for('login'))
 
     else:
