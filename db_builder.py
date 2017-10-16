@@ -11,15 +11,15 @@ c = db.cursor()    #facilitate db ops
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 def builder(textfile,args): #going to assume it's csv and make do without .csv in argument
     data = open(textfile+".csv", "r")
-    peeps = csv.DictReader(data)
-    headers = peeps.fieldnames
+    read = csv.DictReader(data)
+    headers = read.fieldnames
     command = "CREATE TABLE %s (%s);" %(textfile, args)
     #print command
     c.execute(command)
-    for row in peeps:
+    for row in read:
         values = '('
         for name in headers:
-            if name != 'name' and name != 'code':
+            if (row[name]).isdigit():
                 values += row[name]+', '
             else:
                 values += '"' + row[name]+'", '
