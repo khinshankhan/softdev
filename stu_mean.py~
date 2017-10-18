@@ -118,10 +118,10 @@ def add_row(code, mark, idnum):
         print "ADDING %s OF GRADE %s FOR STUDENT ID %s" %(code, mark, idnum)
         c.execute('INSERT INTO courses VALUES ("%s", %d, %d)' % (code, mark, idnum))
         auto_update_avg(0,0,student_avgs)
-    with open('courses.csv','ab') as f:
-        writer=csv.writer(f)
-        writer.writerow([])
-        writer.writerow([code,mark,idnum]) 
+        with open('courses.csv','ab') as f:
+            writer=csv.writer(f)
+            writer.writerow([])
+            writer.writerow([code,mark,idnum]) 
     else:
         print "STUDENT ID DOESNT CORRESPOND TO STUDENT NAME IN DATABASE"
     print '============================'
