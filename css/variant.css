@@ -1,0 +1,23 @@
+html {
+    background-color: teal;
+}
+
+h1{
+    color: navy;
+}
+
+h2{
+    color: teal;
+}
+
+h3{
+    color:aqua;
+}
+
+li{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+p{
+    color: #7FDCFF;
+}
