@@ -1,0 +1,56 @@
+/*
+Failures, but no one may notice:
+-pic didnt go in div, so gave it its own place
+-color schema is made up
+*/
+
+html {
+    background-color: teal;
+    text-shadow: 2px 2px 8px olive;
+}
+
+
+h1, h2 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: midnightblue;
+}
+
+h1 {
+    margin: auto;
+    font-size: 200%;
+    text-align: center;
+    border: 3px solid olive;
+    padding: 10px;
+    width: 50%;
+}
+
+h2 {
+    font-size: 150%;
+}
+/*These two dont work?*/
+a :visited{
+    color: lightsalmon;
+}
+
+au{
+    text-align: center;
+}
+
+li{
+    list-style-type: circle;
+}
+
+p{
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+
+div{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.introimg{
+    display: block;
+    margin: auto;
+    background-color: teal;
+}
