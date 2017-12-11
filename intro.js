@@ -4,7 +4,7 @@ var head;
 var add = function(e){
     var ol = document.getElementById("thelist");
     var li = document.createElement("li");
-    var num = document.getElementsByTagName("li").length;
+    var num = ol.getElementsByTagName("li").length;
     li.innerHTML = "item " + num;
     ol.appendChild(li);
     listenerstolist();
@@ -52,5 +52,25 @@ var listenerstolist = function(){
 	addlisteners(list[i]);
     }
 };
+
+//gets nth fibonacci number
+var fibonacci = function(n){
+    if (n==0) return 0;
+    if (n<2) return 1;
+    return fibonacci(n-1) + fibonacci(n-2);
+};
+
+var fib = function(e){
+    var ol = document.getElementById("list2");
+    var li = document.createElement("li");
+    var num = ol.getElementsByTagName("li").length;
+    console.log(num);
+    li.innerHTML = fibonacci(num);
+    ol.appendChild(li);
+};
+
+//connects fib_b button to fibonacci
+var button2 = fib_b.addEventListener('click', fib);
+
 
 listenerstolist();
