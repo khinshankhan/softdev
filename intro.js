@@ -73,5 +73,23 @@ var fib = function(e){
 //connects fib_b button to fibonacci
 var button2 = fib_b.addEventListener('click', fib);
 
+var golden = function(n){
+    return fibonacci(n+2) + "/" + fibonacci(n+1);
+};
+
+var goldList = function(e){
+    var ol = document.getElementById("listy");
+    var li = document.createElement("li");
+    var num = ol.getElementsByTagName("li").length;
+    li.innerHTML = golden(num);
+    ol.appendChild(li);
+};
+
+var button3 = goldenboi.addEventListener('click', goldList);
+
+console.log(golden(0));
+console.log(golden(1));
+console.log(golden(2));
+console.log(golden(3)); 
 
 listenerstolist();
