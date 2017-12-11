@@ -45,8 +45,9 @@ var addlisteners = function (item){
 
 //goes over the list to add the listners
 var listenerstolist = function(){
-    var num = document.getElementsByTagName("li").length;
-    var list = document.getElementsByTagName("li");
+    var ol = document.getElementById("thelist");
+    var num = ol.getElementsByTagName("li").length;
+    var list = ol.getElementsByTagName("li");
     for(var i = 0; i < num; i++){ 
 	//console.log(list[i]);
 	addlisteners(list[i]);
