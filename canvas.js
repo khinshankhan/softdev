@@ -27,7 +27,7 @@ var change = function (e) {
 var button = toggle.addEventListener('click', change);
 
 //draws the right shape
-var change = function (e) {
+var draw = function (e) {
     //get coordinates
     //math for getting it closer to the click
     var x = e.clientX - 7;
@@ -53,5 +53,5 @@ var change = function (e) {
     ctx.fill();
 };
 
-//connect change function to click on canvas
-slate.addEventListener("click", change);
+//connect draw function to click on canvas
+slate.addEventListener("click", draw);
