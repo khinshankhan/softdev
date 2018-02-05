@@ -7,6 +7,10 @@ var ctx = c.getContext("2d");
 // 1 square, -1 circle
 var shape = 1;
 
+//toggling option connect the dots
+// 1 no, -1 yes
+var cod = 1;
+
 //for color
 var color = "red";
 
@@ -16,7 +20,7 @@ var clear = function (e) {
 };
 
 //connect clear function to button
-var button = cl.addEventListener('click', clear);
+cl.addEventListener('click', clear);
 
 //switches the shape
 var change = function (e) {
@@ -24,33 +28,41 @@ var change = function (e) {
 };
 
 //connect toggle/change function to button
-var button = toggle.addEventListener('click', change);
+toggle.addEventListener('click', change);
 
 //draws the right shape
 var draw = function (e) {
     //get coordinates
     //math for getting it closer to the click
-    var x = e.clientX - 7;
-    var y = e.clientY - 77;
+    //var x = e.clientX - 7;
+    //var y = e.clientY - 77;
+    var x = e.offsetX;
+    var y = e.offsetY;
     //console.log("X: " + x);
     //console.log("Y: " + y);
 
     //sets the color
     color = document.getElementById("colors").value;
     ctx.strokeStyle = color;
-    ctx.beginPath();
-    if(shape == 1){
-	//center into square
-	x = x - 25;
-	y = y - 25;
-	ctx.rect(x,y,50,50);
+    // connect the dots?
+    if(cod == 1){
+	ctx.beginPath();
+	if(shape == 1){
+	    //center into square
+	    x = x - 25;
+	    y = y - 25;
+	    ctx.rect(x,y,50,50);
+	}
+	else{
+	    ctx.arc(x, y, 25, 0, 2*Math.PI);
+	}
+	ctx.stroke();
+	ctx.fillStyle = color;
+	ctx.fill();
     }
     else{
-	ctx.arc(x, y, 25, 0, 2*Math.PI);
+	console.log(cod);
     }
-    ctx.stroke();
-    ctx.fillStyle = color;
-    ctx.fill();
 };
 
 //connect draw function to click on canvas
