@@ -9,7 +9,7 @@ var shape = 1;
 
 //toggling option connect the dots
 // 1 no, -1 yes
-var cod = 1;
+var cdg = 1;
 
 //for color
 var color = "red";
@@ -30,6 +30,15 @@ var change = function (e) {
 //connect toggle/change function to button
 toggle.addEventListener('click', change);
 
+//switches the game mode
+var mode = function (e) {
+    cdg = cdg * -1;
+    ctx.beginPath();
+};
+
+//connect mode function to button
+cdgame.addEventListener('click', mode);
+
 //draws the right shape
 var draw = function (e) {
     //get coordinates
@@ -43,9 +52,9 @@ var draw = function (e) {
 
     //sets the color
     color = document.getElementById("colors").value;
-    ctx.strokeStyle = color;
     // connect the dots?
-    if(cod == 1){
+    if(cdg == 1){
+	ctx.strokeStyle = color;
 	ctx.beginPath();
 	if(shape == 1){
 	    //center into square
@@ -61,7 +70,19 @@ var draw = function (e) {
 	ctx.fill();
     }
     else{
-	console.log(cod);
+	//connect the dots logic
+	//tries to make a line, or else it's first click
+	//stores click into path without resetting it if stay for cdg game
+	ctx.strokeStyle = "black";
+	ctx.lineTo(x,y);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.arc(x, y, 25, 0, 2*Math.PI);
+	ctx.stroke();
+	ctx.fillStyle = "black";
+	ctx.fill();
+	ctx.beginPath();
+	ctx.moveTo(x,y);
     }
 };
 
