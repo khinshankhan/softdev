@@ -45,8 +45,8 @@ var draw = function (e) {
     if(prevx != null){
 	//line to connect
 	c2 = make_svg("line");
-	console.log(prevx)
-	console.log(prevy)
+	//console.log(prevx)
+	//console.log(prevy)
 	c2.setAttribute("x1", prevx);
 	c2.setAttribute("y1", prevy);
 	c2.setAttribute("x2", x);
