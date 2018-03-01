@@ -51,7 +51,10 @@ var draw = function (e) {
 	c2.setAttribute("y1", prevy);
 	c2.setAttribute("x2", x);
 	c2.setAttribute("y2", y);
-	c2.setAttribute("fill", "black");
+	c2.setAttribute("stroke", "black");
+	//make lines better
+	//c2.setAttribute("fill-opacity", "0.5");
+	//c2.setAttribute("stoke-opacity", "0.8");
 	add_svg(c2);
     }
     prevx = x;
