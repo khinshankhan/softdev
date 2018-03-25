@@ -7,13 +7,13 @@ var barEnter = barUpdate.enter().append("div");
 
 var year;
 
-//2018
-var data1 = { deficit_percent: -2.3,
+var data1 = { year: 2018,
+              deficit_percent: -2.3,
               deficit_amount: -392,
               gdp: 17.4,
               totalDebt: 18};
-//2017
-var data2 = { deficit_percent: -2.6,
+var data2 = { year: 2017,
+              deficit_percent: -2.6,
               deficit_amount: -443,
               gdp: 17,
               totalDebt: 17.7};
@@ -72,7 +72,7 @@ var graphBind = function(y){
 };
 
 var changeGraph = function(data){
-    i = -1;
+    i = 0;
     //transition in 3 sec
     barEnter.transition().duration(3000).style("width", function(d) {
 	i += 1;
