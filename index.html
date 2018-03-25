@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>The Gov's Mula</title>
+    <style>
+      .chart div {
+      font: 10px sans-serif;
+      background-color: steelblue;
+      text-align: right;
+      padding: 3px;
+      margin: 1px;
+      color: white;
+      }
+    </style>
+
+    <script src="http://d3js.org/d3.v3.min.js"
+            charset="utf-8"></script>
+  </head>
+  
+  <body>
+
+    <h1> Federal Budget </h1>
+    <div class="chart">
+    </div>
+
+    <div>
+      <form id="years">
+	<input type="radio" name="year" value="2016" checked>2016</input>
+	<input type="radio" name="year" value="2017">2017</input>
+      </form>
+    </div>
+  </body>
+
+  <script src="script.js"></script>
+</html>
