@@ -1,5 +1,5 @@
 //global variables use with multiple functions
-var names = ["$1 Trillion (for scale)", "Deficit", "GDP", "Total Debt"];
+var names = ["$1 Trillion -- (for scale)", "Deficit", "GDP", "Total Debt"];
 var chart = d3.select(".chart");
 var pres = document.getElementById("pres");
 var bar = chart.selectAll("div");
