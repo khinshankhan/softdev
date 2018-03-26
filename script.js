@@ -95,7 +95,7 @@ var changeGraph = function(data){
   //transition in 2 sec
   barEnter.transition().duration(2000).style("width", function(d) {
     i += 1;
-    return data[i] / 10 + "px";
+    return data[i] / 15 + "px";
   });
 };
 
