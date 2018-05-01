@@ -16,11 +16,13 @@ def total_freq(wordlist):
 
 #helper function
 def comparator(a,b):
-    return a if freq(a) > freq(b) else b
+    #changed to set  of book
+    #a.lower() == b.lower()
+    return a if a > freq(b) else freq(b)
 
 def most_freq():
     setbook = set(booklist)
-    return reduce (lambda x,y: comparator(x,y), setbook)
+    return reduce (lambda x,y: comparator(x,y), list(setbook))
     
     
 #Test Cases
@@ -34,4 +36,5 @@ print "Frequency of 'email' and 'friendos',which should be 3:", total_freq(temp)
 print "\n\nNext up is most_freq, it's SUPER SLOW...."
 sys.stdout.flush()
 #print freq('the')
-print "Should be 'the' (7920 occurrences):",most_freq()
+most = most_freq()
+print "Should be 'the' (7920 occurrences): %s"%most 
