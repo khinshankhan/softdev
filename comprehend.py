@@ -26,6 +26,8 @@ def most_freq():
     
     
 #Test Cases
+print "Uncle Tom's Cabin"
+
 print "Frequency of 'email', which should be 3:", freq("email")
 print "Frequency of 'archive', which should be 13:", freq("archive")
 print "Frequency of 'friendos', which should be 0:", freq("friendos")
@@ -38,3 +40,4 @@ sys.stdout.flush()
 #print freq('the')
 most = most_freq()
 print "Should be 'the' (7920 occurrences): %s"%most 
+sys.stdout.flush()
