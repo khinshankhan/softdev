@@ -10,7 +10,7 @@ var totalFem = function(){
     });
 };
 
-var totalPercentFem = function(){
+var total = function(){
     var m = list.reduce(function(x,y){
 	if(!isNaN(x)){
 	    return x+y["males"];
@@ -19,8 +19,34 @@ var totalPercentFem = function(){
 	}
     });
     var f = totalFem();
-    return int(f/(m+f));
+    return m + f;
 };
 
+var totalPercentFem = function(){
+    var f = totalFem();
+    var t = total();
+    return Math.floor((f/(t)) * 100) + " %";
+};
+
+var avgAgeFem = function(){
+    var a = list.reduce(function(x,y){
+	if(!isNaN(x)){
+	    return x+y["age"];
+	}else{
+	    return x["age"] + y["age"];
+	}
+    });
+    var t = total();
+    //console.log(a);
+    //console.log(t);
+    return (a/t);
+};
+
+
 //console.log(list["0"]["females"]);
-console.log(totalFem());
+//console.log(totalFem());
+//console.log(totalPercentFem());
+
+document.getElementById("p1").innerHTML = totalFem() + " people";
+document.getElementById("p2").innerHTML = totalPercentFem();
+document.getElementById("p3").innerHTML = avgAgeFem() + " years";
