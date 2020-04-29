@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Project</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/foundation.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/app.css') }}">
+  </head>
+  
+  <body style="background:lightsteelblue;text-align:center;">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <div class="callout">
+            <h2>Choose a project</h2>
+            <h5>Choose Either</h5>
+	    <h5>Work 13 (NASA) or Work 14 (randomuser)</h5>
+            <a href="/nasa" class="small button float-left">NASA</a>
+	    <a href="/randomuser" class="small button float-right">randomuser</a>
+	    <br>
+	    <br>
+          </div>
+	  
+	</div>
+      </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    
+  </body>
+</html>

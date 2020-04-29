@@ -1,0 +1,21 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Daily NASA Images</title>
+  </head>
+
+  <body style="background:lightsteelblue;text-align:center;">
+    
+    <h1>NASA {{d['date']}} Image: {{d['title']}}</h1>
+    <h5>{{d['explanation']}}</h5>
+    <a href={{d['url']}}><img src={{d['url']}}></a>
+    <br>
+    <br>
+    Copyright &copy; {{d['copyright']}}
+    <br>
+    <br>
+    <a href="/">Project Selection</a>
+  </body>
+
+</html>

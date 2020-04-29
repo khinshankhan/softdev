@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randomuser</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/foundation.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/app.css') }}">
+  </head>
+  
+  <body style="background:lightsteelblue;text-align:center;">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+
+	  <div class="callout">
+            <h2>Random User Information</h2>
+	    <br>
+          </div>
+	  
+	  <div class="callout">
+            <h4>User Information</h4>
+	    <br>
+	    <img src={{d['results'][0]['picture']['large']}}>
+	    <br>
+	    <h5>General</h5>
+	    <p>Name: {{d['results'][0]['name']['title']}} {{d['results'][0]['name']['first']}} {{d['results'][0]['name']['last']}}</p>
+	    <p>Gender: {{d['results'][0]['gender']}}</p>
+	    
+	    <br>
+	    <h5>Location</h5>
+	    <p>Street: {{d['results'][0]['location']['street']}}</p>
+	    <p>City: {{d['results'][0]['location']['city']}}</p>
+	    <p>State: {{d['results'][0]['location']['state']}}</p>
+	    <p>Postcode: {{d['results'][0]['location']['postcode']}}</p>
+          </div>
+
+	  <div class="callout">
+            <h4>Account Information</h4>
+	    <p>Email: {{d['results'][0]['email']}}</p>
+	    <br>
+	    <p>Username: {{d['results'][0]['login']['username']}}</p>
+	    <p>Password: {{d['results'][0]['login']['password']}}</p>
+          </div>
+
+	  <div class="callout">
+            <h4>Account Encryption</h4>
+	    <p>Email: {{d['results'][0]['email']}}</p>
+	    <br>
+	    <p>Salt: {{d['results'][0]['login']['salt']}}</p>
+	    <p>md5: {{d['results'][0]['login']['md5']}}</p>
+	    <p>sha1: {{d['results'][0]['login']['sha1']}}</p>
+	    <p>sha256: {{d['results'][0]['login']['sha256']}}</p>
+          </div>
+	  
+	  <div class="callout">
+            <h4>Personal Information</h4>
+	    <p>DOB: {{d['results'][0]['dob']}}</p>
+	    <p>Registered: {{d['results'][0]['registered']}}</p>
+	    <p>Phone: {{d['results'][0]['phone']}}</p>
+	    <p>Cell: {{d['results'][0]['cell']}}</p>
+	    <br>
+	    <h5>ID</h5>
+	    <p>Name: {{d['results'][0]['id']['name']}}</p>
+	    <p>Value: {{d['results'][0]['id']['value']}}</p>
+          </div>
+	  
+	  <div class="callout">
+            <h4>Want to be Able to Get Back To This User?</h4>
+            <h5>Seed Information</h5>
+	    <p>seed: {{d['info']['seed']}}</p>
+	    <p>results: {{d['info']['results']}}</p>
+	    <p>page: {{d['info']['page']}}</p>
+	    <p>version: {{d['info']['version']}}</p>
+          </div>
+	  
+	  <div class="callout">
+            <h4>I'm Bored With This Person</h4>
+            <h5>Want to See a Different User's Possible Information?</h5>
+	    <p>Just Press the Button Below!</p>
+            <a href="/randomuser" class="small button">New User</a>
+          </div>
+
+	  <div class="callout">
+            <h4>Project Selection</h4>
+            <h5>Wanna See a Different Project</h5>
+	    <p>Just Press the Button Below!</p>
+            <a href="/" class="small button">Project Selection</a>
+          </div>
+	  
+	</div>
+      </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    
+  </body>
+</html>
