@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+
+  <!-- Box around Canvas -->
+  <style>
+    #svg_id {border: 1px solid black }
+  </style>
+  
+  <body>
+    <h1> Connect Dots from SVG </h1>
+
+    <div>
+      <!-- Canvas for SVG -->
+      <svg height="500" width="500" id="svg_id">
+	SVG NOT RECOGNIZED, GET A BETTER BROWSER
+      </svg>
+
+      <!-- Buttons to interact with SVG -->
+      <button id="cl">Clear</button>
+      
+
+      <select id="colors">
+	<!-- Limited Color selection because I'm lazy: ROY G BIV + B&W -->
+	<option value="red" style="background:red">Red</option>
+	<option value="orange" style="background:orange">Orange</option>
+	<option value="yellow" style="background:yellow">Yellow</option>
+	<option value="green" style="background:green">Green</option>
+	<option value="blue" style="background:blue">Blue</option>
+	<option value="indigo" style="background:indigo">Indigo</option>
+	<option value="violet" style="background:violet">Violet</option>
+	<!-- too lazy to turn black text into white -->
+	<option value="black" style="background:black">Black</option>
+	<option value="white" style="background:white">White</option>
+      </select>
+    </div>
+
+    <!-- Script for Canvas -->
+    <script src="svgcd.js"></script>
+
+  </body>
+</head>
