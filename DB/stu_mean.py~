@@ -1,0 +1,133 @@
+import sqlite3   #enable control of an sqlite database
+import csv       #facilitates CSV I/O
+
+
+f="discobandit.db"
+
+db = sqlite3.connect(f) #open if f exists, otherwise create
+c = db.cursor()    #facilitate db ops
+
+#==========================================================
+#INSERT YOUR POPULATE CODE IN THIS ZONE
+#learning to print tables
+'''
+command = 'SELECT * FROM courses'
+for x in c.execute(command):
+    print x
+print '---------------------------------------'
+command = 'SELECT * FROM peeps'
+for x in c.execute(command):
+    print x
+'''
+
+counter = 0
+#count up nums of ids
+command = 'SELECT peeps.id FROM peeps'
+arg = c.execute(command)
+for i in arg:
+    counter += 1
+ids = [None] * counter
+
+#populate ids with the actual id nums
+counter = 0
+command = 'SELECT peeps.id FROM peeps'
+arg = c.execute(command)
+for i in arg:
+    if i not in ids:
+        ids[counter] = i[0]
+        counter += 1
+
+#will store student avgs
+student_avgs = [None] * (counter + 1)
+#will be used to calculate each student's avg 
+cum_grade = 0 #cumulative grades of a single student
+counter = 0 #num of courses taken by single student
+
+#iterate through to get avgs as well as fulfull part of assignment of printing student + grade
+print 'Students with grades'
+print
+for i in ids:
+    command = 'SELECT name,mark,peeps.id,courses.id FROM peeps,courses WHERE %s=peeps.id AND peeps.id=courses.id'%i
+    #print command
+    for x in c.execute(command):
+        cum_grade += x[1]
+        counter += 1
+        print "%s: %s"%(x[0],x[1])
+    #add to dict here
+    student_avgs[i] = cum_grade/ (float)(counter)
+    cum_grade = 0
+    counter = 0
+print '============================'
+
+#print out student name + id + average
+print 'Students with ID and averages'
+print
+for i in ids:
+    command = 'SELECT name,peeps.id FROM peeps WHERE %s=peeps.id'%i
+    #print command                                                                                                                                                 
+    for x in c.execute(command):
+        cum_grade += x[1]
+        counter += 1
+        print "%s: %s, %s" %(x[0],x[1],student_avgs[i])
+print '============================'
+#add id and average to new table
+command = 'CREATE TABLE peeps_avg (id INTEGER, average NUMERIC);'
+c.execute(command);
+for i in ids:
+    insertion = 'INSERT INTO peeps_avg VALUES (%d, %f)' %(i, student_avgs[i])
+    c.execute(insertion)
+
+def auto_update_avg(cum_grade, counter, student_avgs):
+    print "AUTOUPDATING AVERAGES..."
+    for i in ids:
+        command = 'SELECT name,mark,peeps.id,courses.id FROM peeps,courses WHERE %s=peeps.id AND peeps.id=courses.id'%i
+        #print command                                                                                                                                                      
+        for x in c.execute(command):
+            cum_grade += x[1]
+            counter += 1
+            #print "%s: %s"%(x[0],x[1])
+        #add to dict here
+        #print '%s %s' %(cum_grade, counter)
+        student_avgs[i] = cum_grade/ (float)(counter)
+        cum_grade = 0
+        counter = 0
+    for i in ids:
+        command = 'UPDATE peeps_avg SET average = %f WHERE peeps_avg.id = %d;' %(student_avgs[i], i)
+        c.execute(command)
+    
+#faciliate changing avg
+def update_avg(student_name, new_avg):
+    #update avg based off id gotten from name
+    command = 'SELECT peeps.id FROM peeps WHERE peeps.name = "%s"' %student_name
+    c.execute(command)
+    id_num = c.fetchone()
+    #just in case id didnt exist
+    if id_num is None:
+        print "STUDENT ID DOESNT CORRESPOND TO STUDENT NAME IN DATABASE"
+    else:
+        print "CHANGING STUDENT: %s ID's AVG TO %f" %(id_num[0], new_avg)
+    command = 'UPDATE peeps_avg SET average = %f WHERE peeps_avg.id = %d;' %(new_avg, id_num[0])
+    c.execute(command)
+    print 'UPDATING DONE'
+    print '============================'
+#update_avg('alison', 0)
+
+def add_row(code, mark, idnum):
+    #just in case id didnt exist
+    if idnum in ids:
+        print "ADDING %s OF GRADE %s FOR STUDENT ID %s" %(code, mark, idnum)
+        c.execute('INSERT INTO courses VALUES ("%s", %d, %d)' % (code, mark, idnum))
+        auto_update_avg(0,0,student_avgs)
+        with open('courses.csv','ab') as f:
+            writer=csv.writer(f)
+            writer.writerow([])
+            writer.writerow([code,mark,idnum]) 
+    else:
+        print "STUDENT ID DOESNT CORRESPOND TO STUDENT NAME IN DATABASE"
+    print '============================'
+    
+#add_row('philosophy', 100, 10)
+
+#==========================================================
+db.commit() #save changes
+db.close() #close database
