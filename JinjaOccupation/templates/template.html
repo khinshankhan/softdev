@@ -1,0 +1,24 @@
+<!DOCTYPE hmtl>
+<html>
+  <head>
+    <title>OCCUPATIONS</title>
+  </head>
+  <body>
+	<center>
+    <h1>This is a Table of Occupations to Keep You From Being Unemployed.</h1>
+	<h2>The left column shows the occupation while the right column shows how popular it is.</h2>
+	<table>
+	{% for i in dict %}
+	<tr> <td> {{i}} </td> <td> {{dict[i]}} </td> </tr>
+	{% endfor %}
+	</table>
+	</br>
+	</br>
+	If you need help finding the perfect job for you, we're here to help! 
+	</br>
+	After careful analysis and hours of research, we have come to the conclusion that the job best suited for you is: <b>{{random}}</b>. 
+	</br>
+	Yup. Sounds perfect. Have fun, young one!
+	</center>
+  </body>
+</html>
