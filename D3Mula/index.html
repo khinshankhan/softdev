@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>The Gov's Mula</title>
+    <style>
+      body {
+        background-color: #DEDEDE;
+        color: #111166
+      }
+      .chart div {
+        font: 10px sans-serif;
+        background-color: steelblue;
+        text-align: right;
+        padding: 3px;
+        margin: 1px;
+        color: white;
+      }
+    </style>
+
+    <script src="http://d3js.org/d3.v3.min.js"
+            charset="utf-8"></script>
+  </head>
+
+  <body>
+
+    <h1> Federal Budget (In Billions of Dollars)</h1>
+
+    <hr>
+
+    Year:
+    <div>
+      <form id="years">
+        <input type="radio" name="year" value="1945">1945</input>
+        <input type="radio" name="year" value="1991">1991</input>
+        <input type="radio" name="year" value="2017">2017</input>
+	      <input type="radio" name="year" value="2018" checked>2018</input>
+      </form>
+    </div>
+
+    <p>President: <font id="pres"> </font></p>
+
+    <br />
+
+    <div class="chart">
+    </div>
+
+    <br />
+    <a href="http://federal-budget.insidegov.com/">Source</a>
+
+  </body>
+
+  <script src="script.js"></script>
+</html>
