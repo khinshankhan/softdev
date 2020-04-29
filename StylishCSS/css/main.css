@@ -1,0 +1,29 @@
+html {
+    background-color: hotpink;
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+
+h1{
+    color: purple;
+    border: 3px solid olive;
+}
+
+h2{
+    color: #7FDCCF;
+}
+
+h3{
+    color:aqua;
+}
+
+li{
+    /*fifth*/
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+p{
+    color: #9B2FB6;
+}

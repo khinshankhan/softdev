@@ -1,0 +1,52 @@
+@import "variant.css";
+
+div {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.extreme {
+    background: white;
+}
+
+.navzone {
+    background: black;
+}
+
+.content {
+    background: gold;
+}
+
+/*blinking is cool, and one of the only CSS tricks i learned without intro2*/
+.prose {
+    animation: 1s blinker linear infinite;
+    -webkit-animation: 1s blinker linear infinite;
+    -moz-animation: 1s blinker linear infinite;
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+#head1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#tehlulz {
+    text-shadow: 2px 2px 8px #FF0000;
+    font-weight: bold;
+}

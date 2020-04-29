@@ -1,0 +1,30 @@
+html {
+    /*first*/
+    background-color: teal;
+}
+
+h1{
+    /*second*/
+    color: navy;
+    /*third*/
+    border: 3px solid olive;
+    /*fourth*/
+    text-align: center;
+}
+
+h2{
+    color: #7FDCCF;
+}
+
+h3{
+    color:aqua;
+}
+
+li{
+    /*fifth*/
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+p{
+    color: #7FDCFF;
+}
