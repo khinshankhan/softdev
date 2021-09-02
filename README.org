@@ -1,0 +1,10 @@
+#+TITLE: softdev
+#+AUTHOR: Khinshan Khan
+
+An aggregation of my work in Software Development "MKS22QJI"
+
+* Note
+
+  Extremely WIP, haven't figured out renaming and structure yet. Quite a tedious process finding all of them).
+
+  Stay tuned... if you want :shipit:
